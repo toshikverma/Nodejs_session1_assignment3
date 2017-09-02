@@ -1,0 +1,65 @@
+<html>
+<head>
+<script type="text/javascript">
+function checkForm(){
+var name=document.getElementById("name").value;
+var email=document.getElementById("email").value;
+var phone=document.getElementById("phone").value;
+var add=document.getElementById("add").value;
+var isEmptyField=false;
+if(name=='' || email=='' || phone==''){
+	isEmptyField=true;
+if(name==''){document.getElementById("name").style.border="1px solid red";}else{
+    document.getElementById("name").style.border="1px solid grey";
+}
+if(email==''){document.getElementById("email").style.border="1px solid red";}else{
+    document.getElementById("email").style.border="1px solid grey";
+}
+if(phone==''){document.getElementById("phone").style.border="1px solid red";}else{
+    document.getElementById("phone").style.border="1px solid grey";
+}
+	}else{
+         document.getElementById("name").style.border="1px solid grey";
+         document.getElementById("email").style.border="1px solid grey";
+         document.getElementById("phone").style.border="1px solid grey";
+        if(checkemail(email)){
+            alert("everything is correct");
+        }else{
+                document.getElementById("email").style.border="1px solid red";
+            alert("email is  incorrect");
+        }
+        
+    }
+	if(isEmptyField){
+		alert("please fill in marked fields");
+		}
+	return (false);
+	}
+    function checkemail(email){
+	var position_of_a=email.indexOf('@');
+	var initial_position_of_dot=email.indexOf('.');
+	var position_of_dot=email.lastIndexOf('.');
+	if(position_of_a<=0  || initial_position_of_dot<=0){
+	return false;
+	}
+	else{
+	if(position_of_a<position_of_dot){ //veryfying cases that email doesn't start with '@' or '.' and we use less than to verfy it must contain '@' and '.' 
+	return true;
+	}
+	else{
+	return false;
+	}}}
+</script>
+</head>
+<body>
+<form name="form1" onsubmit="return checkForm();" >
+<table>
+<tr><td>Name:</td><td><input type="text" id="name" /></td></tr>
+<tr><td>Email:</td><td><input type="text" id="email" /></td></tr>
+<tr><td>Phone:</td><td><input type="text" id="phone" /></td></tr>
+<tr><td>Address:</td><td><input type="text" id="add" /></td></tr>
+<tr><td rowspan="2"><input type="submit" value="Submit" onclick="checkForm" /></td></tr>
+</table>
+</form> 
+</body>
+</html>
