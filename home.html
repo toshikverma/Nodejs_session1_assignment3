@@ -7,7 +7,7 @@ var email=document.getElementById("email").value;
 var phone=document.getElementById("phone").value;
 var add=document.getElementById("add").value;
 var isEmptyField=false;
-if(name=='' || email=='' || phone==''){
+if(name=='' || email=='' || phone==''){ //checking if any field is empty
 	isEmptyField=true;
 if(name==''){document.getElementById("name").style.border="1px solid red";}else{
     document.getElementById("name").style.border="1px solid grey";
@@ -22,7 +22,7 @@ if(phone==''){document.getElementById("phone").style.border="1px solid red";}els
          document.getElementById("name").style.border="1px solid grey";
          document.getElementById("email").style.border="1px solid grey";
          document.getElementById("phone").style.border="1px solid grey";
-        if(checkemail(email)){
+        if(checkemail(email)){ //checking if email is correct
             alert("everything is correct");
         }else{
                 document.getElementById("email").style.border="1px solid red";
@@ -35,7 +35,7 @@ if(phone==''){document.getElementById("phone").style.border="1px solid red";}els
 		}
 	return (false);
 	}
-    function checkemail(email){
+    function checkemail(email){  
 	var position_of_a=email.indexOf('@');
 	var initial_position_of_dot=email.indexOf('.');
 	var position_of_dot=email.lastIndexOf('.');
